@@ -1,0 +1,145 @@
+@startuml ClassDiagram
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+title Story Scripting Editor - Class Diagram (Chapter 5)
+
+package "patterns" {
+  interface Observer {
+    + update(project: Project): void
+  }
+
+  abstract class Observable {
+    - observers: List[Observer]
+    + add_observer(observer: Observer): void
+    + remove_observer(observer: Observer): void
+    + notify_observers(): void
+  }
+}
+
+package "models" {
+  enum StoryState {
+    DRAFT
+    VALIDATED
+    PUBLISHED
+  }
+
+  class Project {
+    - id: str
+    - title: str
+    - stories: List[Story]
+    - characters: List[Character]
+    - locations: List[Location]
+    - background: BackgroundStory
+    + add_story(story: Story): void
+    + add_character(character: Character): void
+    + add_location(location: Location): void
+    + remove_character(character_id: str): bool
+  }
+
+  class Story {
+    - id: str
+    - title: str
+    - version_label: str
+    - parent_version_id: str
+    - state: StoryState
+    - scenes: List[Scene]
+    + add_scene(scene: Scene): void
+    + reorder_scenes(order: List[str]): void
+    + change_state(new_state: StoryState): void
+    + create_version(label: str): Story
+  }
+
+  class Scene {
+    - id: str
+    - title: str
+    - short_description: str
+    - content: str
+    - emotion_tag: str
+    - action_tag: str
+    - character_refs: List[str]
+    - location_refs: List[str]
+    + add_character_ref(char_id: str): void
+    + add_location_ref(loc_id: str): void
+    + is_empty(): bool
+  }
+
+  class Character {
+    - id: str
+    - name: str
+    - attributes: dict
+    + is_referenced_in(scenes: List[Scene]): bool
+  }
+
+  class Location {
+    - id: str
+    - name: str
+    - attributes: dict
+  }
+
+  class BackgroundStory {
+    - sections: List[BackgroundSection]
+    + add_section(section: BackgroundSection): void
+  }
+
+  class BackgroundSection {
+    - id: str
+    - title: str
+    - content: str
+  }
+}
+
+package "services" {
+  class Validator {
+    + validate(project: Project): ValidationReport
+  }
+
+  class ValidationReport {
+    - warnings: List[str]
+    - errors: List[str]
+    + has_issues(): bool
+    + summary(): str
+  }
+
+  class StoryCompiler {
+    + compile(story: Story, project: Project): str
+    + export_to_file(content: str, path: str, format: str): void
+  }
+}
+
+package "ui" {
+  class Dashboard {
+    - project: Project
+    - metrics: dict
+    + update(project: Project): void
+    + get_scene_count(): int
+    + get_character_scene_map(): dict
+    + get_word_count(): int
+  }
+}
+
+' --- Observer pattern wiring ---
+Observable <|-- Project : extends
+Project o-- "many" Observer : notifies
+Dashboard ..|> Observer : implements
+Dashboard --> Project : observes
+
+' --- Domain model relationships ---
+Project "1" *-- "many" Story : contains
+Project "1" *-- "many" Character : contains
+Project "1" *-- "many" Location : contains
+Project "1" *-- "1" BackgroundStory : contains
+
+Story "1" *-- "many" Scene : contains
+Story --> StoryState
+Story "1" --> "0..1" Story : branches from (parent_version)
+
+BackgroundStory "1" *-- "many" BackgroundSection : contains
+
+' --- Service relationships ---
+Validator --> Project : validates
+Validator --> ValidationReport : produces
+
+StoryCompiler --> Story : compiles
+StoryCompiler --> Project : uses
+
+@enduml

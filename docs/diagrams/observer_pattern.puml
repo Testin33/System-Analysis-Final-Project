@@ -1,0 +1,60 @@
+@startuml ObserverPattern
+skinparam classAttributeIconSize 0
+title Observer Pattern applied to the Story Scripting Editor (Chapter 7)
+
+interface Observer {
+  + update(project: Project): void
+}
+
+abstract class Observable {
+  - observers: List[Observer]
+  + add_observer(observer: Observer): void
+  + remove_observer(observer: Observer): void
+  + notify_observers(): void
+}
+
+class Project {
+  - id: str
+  - title: str
+  - stories: List[Story]
+  - characters: List[Character]
+  - locations: List[Location]
+  - background: BackgroundStory
+  + add_story(story: Story): void
+  + add_character(character: Character): void
+  + add_location(location: Location): void
+  + remove_character(character_id: str): bool
+}
+
+class Dashboard {
+  - project: Project
+  - metrics: dict
+  + update(project: Project): void
+  + get_scene_count(): int
+  + get_character_scene_map(): dict
+  + get_word_count(): int
+}
+
+Observable <|-- Project : extends
+Project o-- "many" Observer : notifies
+Dashboard ..|> Observer : implements
+Dashboard --> Project : observes
+
+note right of Project
+  **Concrete Subject (Observable)**
+  Every time the writer adds or edits a
+  story, character, location, or background
+  section, Project calls notify_observers()
+  to broadcast the change.
+end note
+
+note right of Dashboard
+  **Concrete Observer**
+  On receiving update(project), it recalculates
+  its own metrics (scene count, character count,
+  word count, character-to-scene map) without
+  Project knowing any Dashboard internals -
+  this keeps the two classes loosely coupled.
+end note
+
+@enduml
