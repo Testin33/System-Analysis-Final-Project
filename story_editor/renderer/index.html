@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'" />
+    <title>Story Scripting Editor</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="titlebar">
+      <span class="titlebar-title">Story Scripting Editor</span>
+      <span class="titlebar-project" id="project-name">No project open</span>
+      <div class="titlebar-actions">
+        <button id="btn-new-project" class="btn btn-accent">New project</button>
+        <button id="btn-open-project" class="btn">Open project</button>
+        <button id="btn-search" class="btn" disabled>Search</button>
+        <button id="btn-save-project" class="btn" disabled>Save</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <nav class="sidebar" id="sidebar">
+        <p class="sidebar-empty">Create or open a project to get started.</p>
+
+        <section class="nav-section" data-section="stories" hidden>
+          <div class="nav-section-header">
+            <h2 class="nav-section-title">Stories</h2>
+            <button class="btn-add" id="btn-add-story" title="New story">+</button>
+          </div>
+          <ul class="nav-list" id="list-stories"></ul>
+        </section>
+
+        <section class="nav-section" data-section="characters" hidden>
+          <div class="nav-section-header">
+            <h2 class="nav-section-title">Characters</h2>
+            <button class="btn-add" id="btn-add-character" title="New character">+</button>
+          </div>
+          <ul class="nav-list" id="list-characters"></ul>
+        </section>
+
+        <section class="nav-section" data-section="locations" hidden>
+          <div class="nav-section-header">
+            <h2 class="nav-section-title">Locations</h2>
+            <button class="btn-add" id="btn-add-location" title="New location">+</button>
+          </div>
+          <ul class="nav-list" id="list-locations"></ul>
+        </section>
+
+        <section class="nav-section" data-section="background" hidden>
+          <div class="nav-section-header">
+            <h2 class="nav-section-title">Background</h2>
+            <button class="btn-add" id="btn-add-background-section" title="New background section">+</button>
+          </div>
+          <ul class="nav-list" id="list-background"></ul>
+        </section>
+      </nav>
+
+      <section class="editor" id="editor">
+        <div class="editor-placeholder">
+          <h1>Welcome</h1>
+          <p>Select an item from the left panel to edit it.</p>
+          <p class="editor-placeholder-hint">
+            Scene, character, location, and background editors arrive in the next phase.
+          </p>
+        </div>
+      </section>
+
+      <aside class="dashboard" id="dashboard">
+        <h2 class="dashboard-title">Dashboard</h2>
+        <ul class="dashboard-metrics">
+          <li><span class="metric-label">Scenes</span><span class="metric-value" id="metric-scenes">—</span></li>
+          <li><span class="metric-label">Characters</span><span class="metric-value" id="metric-characters">—</span></li>
+          <li><span class="metric-label">Locations</span><span class="metric-value" id="metric-locations">—</span></li>
+          <li><span class="metric-label">Word count</span><span class="metric-value" id="metric-words">—</span></li>
+        </ul>
+        <div class="dashboard-actions">
+          <button id="btn-validate" class="btn" disabled>Validate</button>
+          <button id="btn-compile" class="btn" disabled>Compile</button>
+        </div>
+
+        <details class="dashboard-section" open>
+          <summary>Characters in scenes</summary>
+          <ul class="dashboard-rows" id="dashboard-character-map"></ul>
+        </details>
+
+        <details class="dashboard-section">
+          <summary>Emotion distribution</summary>
+          <ul class="dashboard-rows" id="dashboard-emotion-distribution"></ul>
+        </details>
+
+        <details class="dashboard-section">
+          <summary>Action tag distribution</summary>
+          <ul class="dashboard-rows" id="dashboard-action-distribution"></ul>
+        </details>
+
+        <details class="dashboard-section">
+          <summary>Incomplete scenes</summary>
+          <ul class="dashboard-rows dashboard-clickable" id="dashboard-incomplete-scenes"></ul>
+        </details>
+      </aside>
+    </main>
+
+    <dialog id="dialog-new-project">
+      <form method="dialog" id="form-new-project">
+        <h2>New project</h2>
+        <label for="input-project-title">Title</label>
+        <input type="text" id="input-project-title" name="title" placeholder="My story" required />
+        <div class="dialog-actions">
+          <button type="button" id="btn-cancel-new-project" class="btn">Cancel</button>
+          <button type="submit" class="btn btn-accent">Create</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="dialog-open-project">
+      <form method="dialog" id="form-open-project">
+        <h2>Open project</h2>
+        <ul class="project-list" id="open-project-list"></ul>
+        <p class="project-list-empty" id="open-project-empty" hidden>No saved projects yet.</p>
+        <div class="dialog-actions">
+          <button type="button" id="btn-cancel-open-project" class="btn">Close</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="dialog-validation-report">
+      <form method="dialog" id="form-validation-report">
+        <h2>Validation report</h2>
+        <p id="validation-summary" class="field-hint"></p>
+        <div class="report-section">
+          <h3>Errors</h3>
+          <ul class="report-list" id="validation-errors"></ul>
+          <p class="report-list-empty" id="validation-errors-empty" hidden>No errors.</p>
+        </div>
+        <div class="report-section">
+          <h3>Warnings</h3>
+          <ul class="report-list" id="validation-warnings"></ul>
+          <p class="report-list-empty" id="validation-warnings-empty" hidden>No warnings.</p>
+        </div>
+        <div class="dialog-actions">
+          <button type="submit" class="btn btn-accent">Close</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="dialog-compile">
+      <form method="dialog" id="form-compile">
+        <h2>Compile story</h2>
+        <label for="compile-story-select">Story</label>
+        <select id="compile-story-select"></select>
+
+        <p class="field-label">Scene order (use ▲/▼ to reorder before compiling)</p>
+        <ul class="entity-list" id="compile-scene-order"></ul>
+
+        <div class="dialog-actions">
+          <button type="button" id="btn-compile-preview" class="btn">Generate preview</button>
+        </div>
+        <label for="compile-preview">Preview</label>
+        <textarea id="compile-preview" rows="8" readonly placeholder="Generate a preview to see the compiled text."></textarea>
+
+        <div class="field-grid">
+          <div>
+            <label class="field-label" for="compile-format">Export format</label>
+            <select id="compile-format">
+              <option value="txt">Plain text (.txt)</option>
+              <option value="md">Markdown (.md)</option>
+              <option value="json">JSON (.json)</option>
+            </select>
+          </div>
+        </div>
+        <p class="field-hint">PDF export needs a PDF-generation library that isn't wired up yet — use .txt/.md/.json for now.</p>
+
+        <div class="dialog-actions">
+          <button type="button" id="btn-cancel-compile" class="btn">Close</button>
+          <button type="button" id="btn-compile-export" class="btn btn-accent">Export…</button>
+        </div>
+        <p id="compile-export-result" class="field-hint"></p>
+      </form>
+    </dialog>
+
+    <dialog id="dialog-search">
+      <form method="dialog" id="form-search">
+        <h2>Search</h2>
+        <div class="field-grid">
+          <div>
+            <label class="field-label" for="search-text">Title / name contains</label>
+            <input type="text" id="search-text" placeholder="e.g. meeting, Elena" />
+          </div>
+          <div>
+            <label class="field-label" for="search-emotion-tag">Emotion tag</label>
+            <select id="search-emotion-tag">
+              <option value="">Any</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-grid">
+          <div>
+            <label class="field-label" for="search-action-tag">Action tag contains</label>
+            <input type="text" id="search-action-tag" placeholder="e.g. confrontation" />
+          </div>
+          <div>
+            <label class="field-label" for="search-character-ref">Involves character</label>
+            <select id="search-character-ref">
+              <option value="">Any</option>
+            </select>
+          </div>
+        </div>
+        <div class="dialog-actions">
+          <button type="button" id="btn-cancel-search" class="btn">Close</button>
+          <button type="button" id="btn-run-search" class="btn btn-accent">Search</button>
+        </div>
+
+        <div class="report-section">
+          <h3>Scenes</h3>
+          <ul class="report-list dashboard-clickable" id="search-results-scenes"></ul>
+          <p class="report-list-empty" id="search-results-scenes-empty" hidden>No matching scenes.</p>
+        </div>
+        <div class="report-section">
+          <h3>Characters</h3>
+          <ul class="report-list dashboard-clickable" id="search-results-characters"></ul>
+          <p class="report-list-empty" id="search-results-characters-empty" hidden>No matching characters.</p>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="../patterns/observer.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

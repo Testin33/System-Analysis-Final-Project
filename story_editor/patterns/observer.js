@@ -28,4 +28,11 @@ class Observable {
   }
 }
 
-module.exports = { Observer, Observable };
+// Loaded both as a CommonJS module (main process, smoke tests) and as a plain
+// <script> in the renderer (no `module` global there — contextIsolation is on).
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = { Observer, Observable };
+} else {
+  window.Observer = Observer;
+  window.Observable = Observable;
+}
