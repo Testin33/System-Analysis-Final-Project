@@ -31,9 +31,11 @@ package "models" {
     - locations: List[Location]
     - background: BackgroundStory
     + add_story(story: Story): void
+    + remove_story(story_id: str): bool
     + add_character(character: Character): void
-    + add_location(location: Location): void
     + remove_character(character_id: str): bool
+    + add_location(location: Location): void
+    + remove_location(location_id: str): bool
   }
 
   class Story {
@@ -44,6 +46,7 @@ package "models" {
     - state: StoryState
     - scenes: List[Scene]
     + add_scene(scene: Scene): void
+    + remove_scene(scene_id: str): bool
     + reorder_scenes(order: List[str]): void
     + change_state(new_state: StoryState): void
     + create_version(label: str): Story
@@ -59,13 +62,16 @@ package "models" {
     - character_refs: List[str]
     - location_refs: List[str]
     + add_character_ref(char_id: str): void
+    + remove_character_ref(char_id: str): void
     + add_location_ref(loc_id: str): void
+    + remove_location_ref(loc_id: str): void
     + is_empty(): bool
   }
 
   class Character {
     - id: str
     - name: str
+    - visible: bool
     - attributes: dict
     + is_referenced_in(scenes: List[Scene]): bool
   }
@@ -74,11 +80,13 @@ package "models" {
     - id: str
     - name: str
     - attributes: dict
+    + is_referenced_in(scenes: List[Scene]): bool
   }
 
   class BackgroundStory {
     - sections: List[BackgroundSection]
     + add_section(section: BackgroundSection): void
+    + remove_section(section_id: str): bool
   }
 
   class BackgroundSection {
@@ -102,7 +110,19 @@ package "services" {
 
   class StoryCompiler {
     + compile(story: Story, project: Project): str
+    + preview(story: Story, project: Project): str
     + export_to_file(content: str, path: str, format: str): void
+  }
+
+  class SearchService {
+    + search_scenes(criteria: dict): List[Scene]
+    + search_characters(criteria: dict): List[Character]
+  }
+
+  class Storage {
+    + save_project(project: Project, path: str): void
+    + load_project(path: str): Project
+    + auto_save(project: Project): void
   }
 }
 
@@ -112,14 +132,18 @@ package "ui" {
     - metrics: dict
     + update(project: Project): void
     + get_scene_count(): int
+    + get_character_count(): int
     + get_character_scene_map(): dict
     + get_word_count(): int
+    + get_emotion_distribution(): dict
+    + get_action_tag_distribution(): dict
+    + get_incomplete_scenes(): List[Scene]
   }
 }
 
 ' --- Observer pattern wiring ---
 Observable <|-- Project : extends
-Project o-- "many" Observer : notifies
+Observable o-- "many" Observer : notifies
 Dashboard ..|> Observer : implements
 Dashboard --> Project : observes
 
@@ -141,5 +165,9 @@ Validator --> ValidationReport : produces
 
 StoryCompiler --> Story : compiles
 StoryCompiler --> Project : uses
+
+SearchService --> Project : searches
+
+Storage --> Project : persists
 
 @enduml

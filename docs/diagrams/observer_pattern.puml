@@ -33,10 +33,13 @@ class Dashboard {
   + get_scene_count(): int
   + get_character_scene_map(): dict
   + get_word_count(): int
+  + get_emotion_distribution(): dict
+  + get_action_tag_distribution(): dict
+  + get_incomplete_scenes(): List[Scene]
 }
 
 Observable <|-- Project : extends
-Project o-- "many" Observer : notifies
+Observable o-- "many" Observer : notifies
 Dashboard ..|> Observer : implements
 Dashboard --> Project : observes
 
