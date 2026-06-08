@@ -240,24 +240,6 @@ Both tests verify all functionality and report "All assertions passed ✅"
 
 ---
 
-##  Project Statistics
-
-| Metric | Value |
-|--------|-------|
-| Total Lines of Code | ~2,500 |
-| UI Code | 1,400+ (app.js) |
-| Classes Implemented | 13 |
-| Services | 4 (Validator, Compiler, Search, Storage) |
-| Export Formats | 4 (.txt, .md, .json, .pdf) |
-| Demo Projects | 2 |
-| Demo Content | ~5,500 words |
-| Characters (demo) | 12 |
-| Locations (demo) | 17 |
-| Scenes (demo) | 24 |
-
----
-
-
 
 ## Notes
 
