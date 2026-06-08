@@ -31,6 +31,7 @@ class Dashboard {
   - metrics: dict
   + update(project: Project): void
   + get_scene_count(): int
+  + get_location_count(): int
   + get_character_scene_map(): dict
   + get_word_count(): int
   + get_emotion_distribution(): dict
@@ -58,6 +59,14 @@ note right of Dashboard
   word count, character-to-scene map) without
   Project knowing any Dashboard internals -
   this keeps the two classes loosely coupled.
+
+  **Implementation Note:**
+  In the renderer, ProjectSubject (extends Observable) wraps the
+  plain-JSON project object and notifies Dashboard. This adapter
+  exists because the renderer works with JSON across the IPC
+  boundary, not live Project instances. The conceptual Observer
+  pattern (shown here) remains unchanged: Dashboard observes
+  state changes and updates its metrics accordingly.
 end note
 
 @enduml
