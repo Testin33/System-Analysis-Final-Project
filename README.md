@@ -164,7 +164,7 @@ Project (extends Observable)
 
 - **[DEMO_INSTRUCTIONS.md](./DEMO_INSTRUCTIONS.md)** - Step-by-step demo walkthrough (13 steps, 5-10 min)
 - **[story_editor/DEMO_PROJECTS_README.md](./story_editor/DEMO_PROJECTS_README.md)** - Detailed project documentation, feature matrix, technical notes
-- **[CLAUDE.md](./CLAUDE.md)** - Complete specification and design decisions
+
 
 ---
 
