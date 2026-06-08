@@ -1,6 +1,7 @@
 // services/compiler.js
 // Replaces [CHAR:ID] / [LOC:ID] tokens with real names — only these two ID types are resolved.
 const fs = require("fs");
+const PDFDocument = require("pdfkit");
 
 const TOKEN_PATTERN = /\[(CHAR|LOC):([^\]]+)\]/g;
 
@@ -29,10 +30,35 @@ class StoryCompiler {
         fs.writeFileSync(filePath, JSON.stringify({ content }, null, 2), "utf-8");
         break;
       case "pdf":
-        throw new Error("PDF export needs a PDF-generation library that isn't wired up yet — use .txt/.md/.json for now.");
+        this._exportToPDF(content, filePath);
+        break;
       default:
         throw new Error(`Unsupported export format: "${format}"`);
     }
+  }
+
+  _exportToPDF(content, filePath) {
+    return new Promise((resolve, reject) => {
+      try {
+        const doc = new PDFDocument({ bufferPages: true });
+        const stream = fs.createWriteStream(filePath);
+
+        doc.pipe(stream);
+        doc.fontSize(12);
+        doc.text(content, { align: "left", wordWrap: true });
+        doc.end();
+
+        stream.on("finish", () => {
+          resolve();
+        });
+
+        stream.on("error", (err) => {
+          reject(err);
+        });
+      } catch (err) {
+        reject(err);
+      }
+    });
   }
 
   _resolveTokens(content, charById, locById) {

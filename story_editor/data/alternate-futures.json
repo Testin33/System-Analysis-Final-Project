@@ -1,0 +1,282 @@
+{
+  "id": "alternate-futures-paraguay",
+  "title": "Paraguay: Alternate Futures (Branching Narratives)",
+  "stories": [
+    {
+      "id": "story-main-baseline",
+      "title": "2024: The Baseline Reality",
+      "versionLabel": "Main Timeline",
+      "parentVersionId": null,
+      "state": "PUBLISHED",
+      "scenes": [
+        {
+          "id": "scene-bs-001",
+          "title": "Where We Are Today",
+          "shortDescription": "Paraguay in 2024: Progress with challenges",
+          "content": "[LOC:paraguay] has made remarkable progress since 1989. Democracy is established, economy is growing at 4-5% annually, and young people see futures at home.\n\n[CHAR:sofia-torres] leads a thriving tech sector. [CHAR:juan-carlos-gaona] works on renewable energy expansion. But challenges remain: 40% poverty rate, environmental degradation, income inequality.\n\nThe country stands at a crossroads: continue current trajectory, or take bold new direction?",
+          "emotionTag": "Status Quo Comfort",
+          "actionTag": "reflection",
+          "characterRefs": ["sofia-torres", "juan-carlos-gaona"],
+          "locationRefs": ["paraguay"]
+        }
+      ]
+    },
+    {
+      "id": "story-optimist-branch",
+      "title": "2034: The Optimistic Path",
+      "versionLabel": "Green Prosperity Scenario",
+      "parentVersionId": "story-main-baseline",
+      "state": "PUBLISHED",
+      "scenes": [
+        {
+          "id": "scene-op-001",
+          "title": "The Decision Point (2024)",
+          "shortDescription": "Leaders choose ambitious green development",
+          "content": "In 2024, [CHAR:sofia-torres] and [CHAR:juan-carlos-gaona] unite to present a radical proposal: Make [LOC:paraguay] the world's first fully sustainable middle-income country by 2034.\n\nThe government embraces this vision. [LOC:asuncion] becomes a global model for sustainable urbanism. [LOC:eastern-region] transitions to regenerative agriculture with international certification.\n\n[CHAR:carlos-mendez]'s sustainable farming practices become the national standard, turning [LOC:paraguay] into a premium exporter of organic products.",
+          "emotionTag": "Mentor Uplift",
+          "actionTag": "visionary-choice",
+          "characterRefs": ["sofia-torres", "juan-carlos-gaona", "carlos-mendez"],
+          "locationRefs": ["paraguay", "asuncion", "eastern-region"]
+        },
+        {
+          "id": "scene-op-002",
+          "title": "2030: The Transformation",
+          "shortDescription": "Seven years of sustained green development",
+          "content": "By 2030, [LOC:paraguay] has achieved:\n\n- Carbon neutrality in electricity generation\n- 85% renewable energy (expanded hydroelectric, solar, wind)\n- Zero deforestation, with reforestation programs expanding\n- World's largest concentration of green tech startups\n- UNESCO recognition as a biodiversity leader\n- Indigenous communities as partners in development\n\n[CHAR:diego-ortega] leads an international consortium of clean-tech companies. [CHAR:sofia-torres] is elected as South America's environmental leader.",
+          "emotionTag": "Supreme Ordeal",
+          "actionTag": "breakthrough-achievement",
+          "characterRefs": ["sofia-torres", "diego-ortega"],
+          "locationRefs": ["paraguay"]
+        },
+        {
+          "id": "scene-op-003",
+          "title": "2034: The Dream Realized",
+          "shortDescription": "Paraguay becomes a global model of sustainable development",
+          "content": "By 2034, [LOC:paraguay] has transformed into:\n\n- Middle-income country with zero poverty\n- Global leader in renewable energy and sustainable agriculture\n- Education system ranked among world's best\n- No gender gap in higher education\n- Indigenous languages and cultures flourishing\n- Youth unemployment at 2%\n\n[LOC:asuncion] hosts the UN Sustainable Development Summit. [CHAR:maria-garcia], now retired, watches her education vision bear fruit with 99% literacy rate.\n\n[LOC:brazil] and [LOC:argentina] study [LOC:paraguay]'s model. The small country that once struggled becomes the teacher.",
+          "emotionTag": "Catharsis",
+          "actionTag": "triumphant-success",
+          "characterRefs": ["maria-garcia"],
+          "locationRefs": ["paraguay", "asuncion", "brazil", "argentina"]
+        }
+      ]
+    },
+    {
+      "id": "story-pessimist-branch",
+      "title": "2034: The Stagnant Path",
+      "versionLabel": "Missed Opportunity Scenario",
+      "parentVersionId": "story-main-baseline",
+      "state": "PUBLISHED",
+      "scenes": [
+        {
+          "id": "scene-ps-001",
+          "title": "The Easy Road (2024)",
+          "shortDescription": "Government chooses short-term growth over transformation",
+          "content": "In 2024, instead of embracing transformation, [LOC:paraguay]'s government chooses the comfortable path: more soybean exports, more large-scale agriculture, continuation of current policies.\n\n[CHAR:juan-carlos-gaona] warns of environmental catastrophe, but his voice is drowned out by agribusiness lobbies. [CHAR:sofia-torres], frustrated with limited innovation support, emigrates to [LOC:miami] with her best engineers.\n\nCorruption remains endemic. [LOC:asuncion] grows chaotic with unplanned development. [LOC:eastern-region] experiences rapid deforestation.",
+          "emotionTag": "Call Refusal",
+          "actionTag": "complacency",
+          "characterRefs": ["juan-carlos-gaona", "sofia-torres"],
+          "locationRefs": ["paraguay", "asuncion", "eastern-region"]
+        },
+        {
+          "id": "scene-ps-002",
+          "title": "2027: Consequences Begin",
+          "shortDescription": "Environmental and social problems accelerate",
+          "content": "By 2027, [LOC:paraguay] faces mounting crises:\n\n- 50% of Chocó forests lost to cattle ranching\n- Aquifer contamination from agricultural chemicals\n- Brain drain accelerates with 100,000+ young people emigrating annually\n- Income inequality worsens\n- Climate refugees from flooded [LOC:wetlands]\n\n[CHAR:juan-carlos-gaona] leads protests but is marginalized. [CHAR:maria-garcia]'s education reforms are underfunded and erode. The education system gaps widen.",
+          "emotionTag": "Crisis of Faith",
+          "actionTag": "environmental-collapse",
+          "characterRefs": ["juan-carlos-gaona", "maria-garcia"],
+          "locationRefs": ["paraguay", "choco-region", "wetlands"]
+        },
+        {
+          "id": "scene-ps-003",
+          "title": "2034: Lost Potential",
+          "shortDescription": "Paraguay becomes a cautionary tale",
+          "content": "By 2034, [LOC:paraguay] remains largely unchanged from 2024, but worse:\n\n- Still commodity-dependent\n- Worse income inequality\n- Educational gaps deepened\n- 20% of population has emigrated\n- Environmental degradation advanced\n- International aid dependency increased\n- Youth unemployment at 25%\n\nUniversities in [LOC:asuncion] struggle. Tech sector is minimal. [LOC:eastern-region] is monoculture wasteland. Indigenous cultures further marginalized.\n\nThe tragedy: [LOC:paraguay] had the resources and visionary leaders to transform, but chose comfort over courage.",
+          "emotionTag": "Master of Two Worlds",
+          "actionTag": "missed-destiny",
+          "characterRefs": ["juan-carlos-gaona"],
+          "locationRefs": ["paraguay", "asuncion", "eastern-region"]
+        }
+      ]
+    },
+    {
+      "id": "story-pragmatic-branch",
+      "title": "2034: The Balanced Path",
+      "versionLabel": "Realistic Middle-Ground Scenario",
+      "parentVersionId": "story-main-baseline",
+      "state": "VALIDATED",
+      "scenes": [
+        {
+          "id": "scene-bp-001",
+          "title": "Strategic Choices (2024)",
+          "shortDescription": "Balanced approach: growth with sustainability",
+          "content": "In 2024, [LOC:paraguay]'s leaders choose pragmatism: Continue agricultural exports but invest heavily in tech and green innovation. [CHAR:carlos-mendez], [CHAR:sofia-torres], and [CHAR:juan-carlos-gaona] form an unlikely alliance.\n\nAgriculture transitions toward higher-value, sustainable products. Tech sector receives government support. Environmental regulations tighten gradually.",
+          "emotionTag": "Mentor Uplift",
+          "actionTag": "pragmatic-strategy",
+          "characterRefs": ["carlos-mendez", "sofia-torres", "juan-carlos-gaona"],
+          "locationRefs": ["paraguay"]
+        },
+        {
+          "id": "scene-bp-002",
+          "title": "2028: Steady Progress",
+          "shortDescription": "Diversification shows results",
+          "content": "By 2028, [LOC:paraguay] is successfully diversifying:\n\n- Agriculture now 35% of exports (down from 60%)\n- Tech sector growing 25% annually\n- Renewable energy at 60% of grid\n- Poverty reduced to 30%\n- Universities improving in global rankings\n\n[CHAR:sofia-torres] returns from abroad, seeing genuine opportunity. [CHAR:diego-ortega]'s innovations find international markets.",
+          "emotionTag": "Rookie Optimism",
+          "actionTag": "diversification-success",
+          "characterRefs": ["sofia-torres", "diego-ortega"],
+          "locationRefs": ["paraguay"]
+        },
+        {
+          "id": "scene-bp-003",
+          "title": "2034: Emerging Power",
+          "shortDescription": "Paraguay becomes a rising Latin American power",
+          "content": "By 2034, [LOC:paraguay] is emerging as a middle power in South America:\n\n- Upper-middle income status\n- 22% poverty rate (down from 40%)\n- Tech sector competitive globally\n- Environmental stable but not leading\n- Education system improving but challenges remain\n- Growing regional influence\n\nNot the dream scenario, but a genuine success. Youth see futures at home. [CHAR:sofia-torres] advises other Latin American countries. [CHAR:juan-carlos-gaona]'s environmental work continues, if limited.\n\nParaguay's lesson: Steady progress beats both stagnation and unrealistic dreams.",
+          "emotionTag": "Epiphany / Resurrection",
+          "actionTag": "realistic-success",
+          "characterRefs": ["sofia-torres", "juan-carlos-gaona"],
+          "locationRefs": ["paraguay"]
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "sofia-torres",
+      "name": "Sofía Torres",
+      "visible": true,
+      "attributes": {
+        "role": "Tech Entrepreneur",
+        "age_2024": 42,
+        "background": "Founded Paraguay's first successful tech unicorn, now pivotal in future scenarios",
+        "personality": "Visionary, pragmatic, adaptable",
+        "significance": "Symbol of new generation's choices"
+      }
+    },
+    {
+      "id": "juan-carlos-gaona",
+      "name": "Juan Carlos Gaona",
+      "visible": true,
+      "attributes": {
+        "role": "Environmental Scientist",
+        "age_2024": 58,
+        "background": "Decades of environmental work, increasingly pressing for radical change",
+        "personality": "Principled, visionary, sometimes frustrated",
+        "significance": "Voice of environmental consciousness"
+      }
+    },
+    {
+      "id": "carlos-mendez",
+      "name": "Carlos Méndez",
+      "visible": true,
+      "attributes": {
+        "role": "Agricultural Leader",
+        "age_2024": 55,
+        "background": "Pioneer of sustainable agriculture, bridge between traditional and modern",
+        "personality": "Pragmatic, innovative, community-focused",
+        "significance": "Key to agricultural transformation"
+      }
+    },
+    {
+      "id": "diego-ortega",
+      "name": "Diego Ortega",
+      "visible": true,
+      "attributes": {
+        "role": "Tech Co-Founder",
+        "age_2024": 38,
+        "background": "Partner in tech ventures, symbol of technical excellence",
+        "personality": "Focused, ambitious, collaborative",
+        "significance": "Driver of digital economy"
+      }
+    },
+    {
+      "id": "maria-garcia",
+      "name": "María García López",
+      "visible": true,
+      "attributes": {
+        "role": "Education Pioneer",
+        "age_2024": 75,
+        "background": "Lifelong commitment to education, legacy in all scenarios",
+        "personality": "Wise, dedicated, hopeful",
+        "significance": "Witness to outcomes of choices"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": "paraguay",
+      "name": "Paraguay",
+      "attributes": {
+        "description": "Central character in these alternate futures",
+        "theme": "Crossroads of possibility"
+      }
+    },
+    {
+      "id": "asuncion",
+      "name": "Asunción",
+      "attributes": {
+        "description": "Capital where policy decisions originate"
+      }
+    },
+    {
+      "id": "eastern-region",
+      "name": "Eastern Region",
+      "attributes": {
+        "description": "Agricultural heartland, crucial to all scenarios"
+      }
+    },
+    {
+      "id": "choco-region",
+      "name": "Chocó Region",
+      "attributes": {
+        "description": "Environmental test case for sustainability"
+      }
+    },
+    {
+      "id": "wetlands",
+      "name": "Esteros del Ibera Wetlands",
+      "attributes": {
+        "description": "Ecological indicator of scenario outcomes"
+      }
+    },
+    {
+      "id": "brazil",
+      "name": "Brazil",
+      "attributes": {
+        "description": "Regional reference point"
+      }
+    },
+    {
+      "id": "argentina",
+      "name": "Argentina",
+      "attributes": {
+        "description": "Regional reference point"
+      }
+    },
+    {
+      "id": "miami",
+      "name": "Miami",
+      "attributes": {
+        "description": "Destination for emigrants in pessimistic scenario"
+      }
+    }
+  ],
+  "background": {
+    "sections": [
+      {
+        "id": "bg-alt-001",
+        "title": "Why These Three Scenarios?",
+        "content": "The futures presented here are not speculative fiction—they're realistic extrapolations of choices [LOC:paraguay] faces now.\n\nEach scenario represents a genuine possibility based on current trends:\n\n1. **Optimistic Path**: Based on global green economy trends and [LOC:paraguay]'s natural advantages\n2. **Pessimistic Path**: Based on historical patterns of regional stagnation and resource curse dynamics\n3. **Balanced Path**: Most likely outcome given political realities and incremental change\n\nThe people—[CHAR:sofia-torres], [CHAR:juan-carlos-gaona], [CHAR:carlos-mendez]—face different futures based on collective choices."
+      },
+      {
+        "id": "bg-alt-002",
+        "title": "The Role of Individual Choices",
+        "content": "This branching narrative demonstrates a key principle: large-scale outcomes emerge from individual choices.\n\n[CHAR:sofia-torres]'s decision to stay or leave affects the entire tech sector trajectory. [CHAR:juan-carlos-gaona]'s advocacy shapes environmental policy. [CHAR:carlos-mendez]'s agricultural models influence farm practices across [LOC:paraguay].\n\nNo single person determines [LOC:paraguay]'s future, but individual leaders matter enormously."
+      },
+      {
+        "id": "bg-alt-003",
+        "title": "Critical Juncture: 2024-2030",
+        "content": "The next 6 years (2024-2030) are decisive. If [LOC:paraguay] invests heavily in green technology and education now, the optimistic path becomes plausible. If it continues commodity dependence, stagnation follows.\n\nKey decision points:\n- Will the government fund tech innovation or just agriculture?\n- Will environmental regulations tighten or relax?\n- Will universities receive adequate investment?\n- Will young talent stay or emigrate?\n\nEach answer cascades across decades."
+      }
+    ]
+  }
+}

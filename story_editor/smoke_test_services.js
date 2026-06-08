@@ -71,13 +71,16 @@ const exportPath = path.join(__dirname, "data", "compiled_preview.txt");
 compiler.exportToFile(compiled, exportPath, "txt");
 console.assert(fs.existsSync(exportPath), "exportToFile should write a .txt file");
 fs.unlinkSync(exportPath);
-let pdfRejected = false;
-try {
-  compiler.exportToFile(compiled, exportPath, "pdf");
-} catch (err) {
-  pdfRejected = true;
+
+// PDF export is now supported via pdfkit
+const pdfPath = path.join(__dirname, "data", "compiled_preview.pdf");
+const pdfResult = compiler.exportToFile(compiled, pdfPath, "pdf");
+if (pdfResult instanceof Promise) {
+  pdfResult.then(() => {
+    console.assert(fs.existsSync(pdfPath), "exportToFile should write a .pdf file");
+    fs.unlinkSync(pdfPath);
+  });
 }
-console.assert(pdfRejected, "exportToFile should reject unsupported .pdf for now");
 
 console.log("\n3. SearchService");
 const search = new SearchService(project);

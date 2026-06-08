@@ -18,18 +18,22 @@ const EXPORT_FILTERS = {
   txt: [{ name: "Plain text", extensions: ["txt"] }],
   md: [{ name: "Markdown", extensions: ["md"] }],
   json: [{ name: "JSON", extensions: ["json"] }],
+  pdf: [{ name: "PDF", extensions: ["pdf"] }],
 };
 
 function listProjectFiles() {
   if (!fs.existsSync(DATA_DIR)) return [];
   return fs
     .readdirSync(DATA_DIR)
-    .filter((name) => name.endsWith(".json"))
+    .filter((name) => name.endsWith(".json") && !name.includes(".autosave.json"))
     .map((name) => {
       const filePath = path.join(DATA_DIR, name);
       try {
         const project = storage.loadProject(filePath);
-        return { id: project.id, title: project.title, filePath };
+        // Check if an autosave file exists for this project
+        const autoSavePath = path.join(DATA_DIR, `${project.id}.autosave.json`);
+        const hasAutoSave = fs.existsSync(autoSavePath);
+        return { id: project.id, title: project.title, filePath, hasAutoSave, autoSavePath };
       } catch {
         return null;
       }
@@ -69,6 +73,11 @@ ipcMain.handle("projects:load", (event, filePath) => {
   return storage.loadProject(filePath).toJSON();
 });
 
+ipcMain.handle("projects:loadAutoSave", (event, autoSavePath) => {
+  // Load a project from its autosave file (e.g., after crash recovery)
+  return storage.loadProject(autoSavePath).toJSON();
+});
+
 ipcMain.handle("projects:save", (event, projectData, filePath) => {
   storage.saveProject(Project.fromJSON(projectData), filePath);
   return true;
@@ -101,7 +110,11 @@ ipcMain.handle("story:export", async (event, content, format) => {
     filters: EXPORT_FILTERS[format] || [],
   });
   if (canceled || !filePath) return { canceled: true };
-  compiler.exportToFile(content, filePath, format);
+  const result = compiler.exportToFile(content, filePath, format);
+  // PDF export returns a Promise; others return undefined
+  if (result instanceof Promise) {
+    await result;
+  }
   return { canceled: false, filePath };
 });
 

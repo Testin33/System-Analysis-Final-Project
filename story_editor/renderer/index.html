@@ -123,6 +123,17 @@
       </form>
     </dialog>
 
+    <dialog id="dialog-crash-recovery">
+      <form method="dialog" id="form-crash-recovery">
+        <h2>Recover project</h2>
+        <p class="field-hint">An auto-saved version of this project exists. Would you like to recover from the auto-save or continue with the last saved version?</p>
+        <div class="dialog-actions">
+          <button type="button" id="btn-cancel-recovery" class="btn">Continue with last save</button>
+          <button type="button" id="btn-recover-autosave" class="btn btn-accent">Recover auto-save</button>
+        </div>
+      </form>
+    </dialog>
+
     <dialog id="dialog-validation-report">
       <form method="dialog" id="form-validation-report">
         <h2>Validation report</h2>
@@ -165,10 +176,11 @@
               <option value="txt">Plain text (.txt)</option>
               <option value="md">Markdown (.md)</option>
               <option value="json">JSON (.json)</option>
+              <option value="pdf">PDF (.pdf)</option>
             </select>
           </div>
         </div>
-        <p class="field-hint">PDF export needs a PDF-generation library that isn't wired up yet — use .txt/.md/.json for now.</p>
+        <p class="field-hint">Compile and export your story in multiple formats. All tokens are resolved to character and location names.</p>
 
         <div class="dialog-actions">
           <button type="button" id="btn-cancel-compile" class="btn">Close</button>

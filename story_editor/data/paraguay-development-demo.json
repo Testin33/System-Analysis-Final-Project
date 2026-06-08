@@ -1,0 +1,401 @@
+{
+  "id": "paraguay-development-demo",
+  "title": "Paraguay's Journey to Development",
+  "stories": [
+    {
+      "id": "story-01-economic",
+      "title": "Economic Transformation (1989-2024)",
+      "versionLabel": "v1.0",
+      "parentVersionId": null,
+      "state": "PUBLISHED",
+      "scenes": [
+        {
+          "id": "scene-001",
+          "title": "The Fall of Stroessner",
+          "shortDescription": "Paraguay's transition from dictatorship to democracy begins",
+          "content": "The year is 1989. [CHAR:alfredo-rodriguez] stands at a crossroads as [CHAR:alfredo-stroessner], the dictator who has ruled for 35 years, is finally overthrown. [CHAR:alfredo-rodriguez] sees an opportunity for change. Paraguay had been isolated from the world, stuck in poverty and corruption. The military coup that removes Stroessner opens the door to democratic reforms and international engagement.\n\nIn [LOC:asuncion], the capital, citizens gather in the streets. The old regime's symbols are torn down. A new constitution is being drafted. [CHAR:juan-carlos-gaona] and [CHAR:maria-garcia], young intellectuals, begin to document this historic moment. They believe this is the beginning of a new era for [LOC:paraguay].\n\nBut the path ahead is uncertain. The economy is weak, infrastructure is deteriorated, and corruption runs deep in institutions.",
+          "emotionTag": "Call Refusal",
+          "actionTag": "historical-shift",
+          "characterRefs": ["alfredo-rodriguez", "alfredo-stroessner", "juan-carlos-gaona", "maria-garcia"],
+          "locationRefs": ["asuncion", "paraguay"]
+        },
+        {
+          "id": "scene-002",
+          "title": "Agricultural Expansion",
+          "shortDescription": "Paraguay becomes a soybean production powerhouse",
+          "content": "Ten years later, Paraguay's economy is being transformed by agriculture. [CHAR:carlos-mendez], a progressive farmer and economist, champions sustainable agricultural development. He partners with [CHAR:maria-garcia], now a policy advisor, to push for modern farming techniques.\n\nThe [LOC:eastern-region] of Paraguay, with its fertile lands, becomes the focus of massive soybean cultivation. This brings wealth but also environmental concerns. [CHAR:carlos-mendez] advocates for responsible growth.\n\n[LOC:buenos-aires] investors are watching. They see Paraguay as the next agricultural frontier. The Paraná River, flowing through [LOC:paraguay], becomes crucial for trade routes. Ports are being upgraded. Infrastructure is improving.\n\nBy 2005, Paraguay is exporting millions of tons of soybeans annually. Jobs are created. A middle class is emerging. But questions remain about environmental sustainability and indigenous land rights.",
+          "emotionTag": "Rookie Optimism",
+          "actionTag": "economic-development",
+          "characterRefs": ["carlos-mendez", "maria-garcia"],
+          "locationRefs": ["eastern-region", "paraguay", "buenos-aires"]
+        },
+        {
+          "id": "scene-003",
+          "title": "Hydroelectric Innovation",
+          "shortDescription": "The Itaipu Dam becomes a symbol of regional cooperation",
+          "content": "[CHAR:alfredo-rodriguez], now elder statesman, reflects on Paraguay's relationship with [LOC:brazil]. The Itaipu Dam, jointly owned with Brazil, produces 20% of the world's hydroelectric power. Paraguay sells most of its share to [LOC:brazil], generating billions in revenue.\n\nBut [CHAR:juan-carlos-gaona], now an environmental scientist, warns of ecological impacts. The [LOC:wetlands] of Esteros del Ibera are threatened by infrastructure expansion. He meets with [CHAR:carlos-mendez] to discuss balancing development and conservation.\n\n[LOC:asuncion] becomes more modern with these revenues. Universities expand. Technology centers open. Young Paraguayans no longer need to emigrate for opportunities. Paraguay is becoming integrated into South America's economy, though questions persist about fair trade with [LOC:brazil] and [LOC:argentina].",
+          "emotionTag": "Threshold Dread",
+          "actionTag": "infrastructure-growth",
+          "characterRefs": ["alfredo-rodriguez", "juan-carlos-gaona", "carlos-mendez"],
+          "locationRefs": ["brazil", "paraguay", "wetlands", "asuncion", "argentina"]
+        },
+        {
+          "id": "scene-004",
+          "title": "Tech Hub Emergence",
+          "shortDescription": "Paraguay positions itself as a Latin American tech center",
+          "content": "By 2015, a new generation emerges. [CHAR:sofia-torres], a young tech entrepreneur from [LOC:asuncion], launches a successful software company that attracts international investment. She partners with [CHAR:diego-ortega], an engineer who believes Paraguay can compete globally in technology.\n\n[CHAR:sofia-torres] and [CHAR:diego-ortega] establish innovation hubs in [LOC:asuncion] and [LOC:ciudad-del-este]. The government, now led by more progressive officials, offers tax incentives for tech startups.\n\n[CHAR:maria-garcia], retired from policy-making but still influential, supports this transition. She sees it as Paraguay's chance to create high-value jobs beyond agriculture and energy. Foreign tech companies begin opening offices. Young Paraguayans return home instead of emigrating.\n\nThe narrative shifts: Paraguay is no longer just a commodity exporter. It's becoming a place for innovation and digital transformation.",
+          "emotionTag": "Mentor Uplift",
+          "actionTag": "digital-transformation",
+          "characterRefs": ["sofia-torres", "diego-ortega", "maria-garcia"],
+          "locationRefs": ["asuncion", "ciudad-del-este", "paraguay"]
+        },
+        {
+          "id": "scene-005",
+          "title": "Green Energy Revolution",
+          "shortDescription": "Paraguay becomes a renewable energy leader",
+          "content": "As climate change becomes undeniable, Paraguay pivots toward green energy. [CHAR:juan-carlos-gaona], now a renowned environmental scientist, leads an initiative to position Paraguay as a global renewable energy hub.\n\nWindmills rise in the eastern regions. Solar panels are installed across [LOC:asuncion]. The [LOC:choco-region] explores sustainable energy projects. Paraguay's abundant water resources are leveraged for clean hydroelectric expansion.\n\n[CHAR:carlos-mendez]'s agricultural work also evolves: he champions regenerative farming practices. [CHAR:sofia-torres]'s tech companies develop smart agriculture platforms. All these efforts converge.\n\nParaguay begins attracting green energy investors from across the world. The country that once was isolated is now a beacon for sustainable development in Latin America. Climate conferences feature Paraguayan speakers. Young people feel proud of their nation's direction.",
+          "emotionTag": "Epiphany / Resurrection",
+          "actionTag": "sustainability-leadership",
+          "characterRefs": ["juan-carlos-gaona", "carlos-mendez", "sofia-torres"],
+          "locationRefs": ["asuncion", "choco-region", "eastern-region", "paraguay"]
+        },
+        {
+          "id": "scene-006",
+          "title": "Regional Integration",
+          "shortDescription": "Paraguay becomes a key player in South American integration",
+          "content": "Today, Paraguay is at the center of South American integration. [CHAR:alfredo-rodriguez], now a historical figure, has watched his nation transform. His memoirs detail the journey from dictatorship to this moment.\n\n[CHAR:sofia-torres], leading international business councils, negotiates trade agreements with [LOC:brazil], [LOC:argentina], and other nations. [CHAR:juan-carlos-gaona] represents Paraguay in environmental summits. [CHAR:maria-garcia]'s policy frameworks are studied in universities across [LOC:south-america].\n\nThe Paraná River, once a barrier, is now a connector. [LOC:asuncion] rivals major South American capitals in quality of life. Indigenous communities, though still facing challenges, have gained more voice in development decisions.\n\nParaguay has become a middle-income country with high growth potential. It's no longer a story of survival, but one of ambition, innovation, and hope. The next generation sees unlimited possibilities.",
+          "emotionTag": "Master of Two Worlds",
+          "actionTag": "international-cooperation",
+          "characterRefs": ["alfredo-rodriguez", "sofia-torres", "juan-carlos-gaona", "maria-garcia"],
+          "locationRefs": ["asuncion", "brazil", "argentina", "south-america", "paraguay"]
+        }
+      ]
+    },
+    {
+      "id": "story-02-education",
+      "title": "Education: Building Human Capital",
+      "versionLabel": "v1.0",
+      "parentVersionId": null,
+      "state": "VALIDATED",
+      "scenes": [
+        {
+          "id": "scene-101",
+          "title": "Legacy of Educational Struggle",
+          "shortDescription": "Understanding Paraguay's education challenges after dictatorship",
+          "content": "After the fall of the dictatorship, Paraguay's education system is in ruins. [CHAR:maria-garcia], a newly appointed educator, discovers that literacy rates are dismally low in rural areas. The [LOC:eastern-region] has no universities. [LOC:choco-region] has one-room schoolhouses.\n\n[CHAR:maria-garcia] begins a mission to transform education. She partners with [CHAR:juan-carlos-gaona], who brings scientific expertise. Together, they document the scale of the problem: millions of Paraguayan children have no access to quality education.",
+          "emotionTag": "Crisis of Faith",
+          "actionTag": "needs-assessment",
+          "characterRefs": ["maria-garcia", "juan-carlos-gaona"],
+          "locationRefs": ["eastern-region", "choco-region", "paraguay"]
+        },
+        {
+          "id": "scene-102",
+          "title": "Building Universities",
+          "shortDescription": "Expansion of higher education infrastructure",
+          "content": "[CHAR:maria-garcia] advocates for university construction. With newly available resources from Itaipu revenues, the government funds universities in [LOC:ciudad-del-este], [LOC:eastern-region], and other regions.\n\nBy 2005, Paraguay has a network of public and private universities. Students no longer must emigrate for higher education. [CHAR:sofia-torres] is among the first generation to earn a tech degree in [LOC:asuncion] itself.\n\nEducation becomes the path to social mobility. Poor families see education as their children's escape route from poverty.",
+          "emotionTag": "Approach Dread",
+          "actionTag": "infrastructure-investment",
+          "characterRefs": ["maria-garcia", "sofia-torres"],
+          "locationRefs": ["ciudad-del-este", "eastern-region", "asuncion", "paraguay"]
+        },
+        {
+          "id": "scene-103",
+          "title": "Digital Literacy Initiative",
+          "shortDescription": "Bringing technology to classrooms",
+          "content": "[CHAR:sofia-torres] and [CHAR:diego-ortega], as tech leaders, launch a program to digitize schools. Computers are distributed to public schools. Teachers are trained in digital literacy. Online learning platforms reach rural communities in [LOC:choco-region].\n\nThis is revolutionary for [LOC:paraguay]. Children in remote areas now have access to world-class educational content. Language learning apps help students practice English and Portuguese.",
+          "emotionTag": "Rookie Optimism",
+          "actionTag": "technology-adoption",
+          "characterRefs": ["sofia-torres", "diego-ortega"],
+          "locationRefs": ["choco-region", "paraguay"]
+        },
+        {
+          "id": "scene-104",
+          "title": "STEM Excellence",
+          "shortDescription": "Creating a pipeline of STEM professionals",
+          "content": "[CHAR:juan-carlos-gaona], renowned for his environmental science work, establishes STEM scholarship programs. Young Paraguayans excel in mathematics, biology, chemistry, and physics.\n\nInternational science competitions see Paraguayan participants. Research begins happening in [LOC:asuncion] universities. Paraguay starts publishing in world-class journals.",
+          "emotionTag": "Supreme Ordeal",
+          "actionTag": "academic-excellence",
+          "characterRefs": ["juan-carlos-gaona"],
+          "locationRefs": ["asuncion", "paraguay"]
+        },
+        {
+          "id": "scene-105",
+          "title": "Inclusive Education",
+          "shortDescription": "Ensuring no child is left behind",
+          "content": "[CHAR:maria-garcia]'s lasting legacy is inclusive education policy. Programs ensure indigenous children, children with disabilities, and girls in rural areas all have educational opportunities.\n\nParaguay's gender parity in education improves dramatically. Indigenous languages are taught alongside Spanish. Vocational training is available for those not pursuing university.",
+          "emotionTag": "Catharsis",
+          "actionTag": "equity-focus",
+          "characterRefs": ["maria-garcia"],
+          "locationRefs": ["paraguay"]
+        }
+      ]
+    },
+    {
+      "id": "story-03-culture",
+      "title": "Cultural Renaissance",
+      "versionLabel": "v1.0",
+      "parentVersionId": null,
+      "state": "DRAFT",
+      "scenes": [
+        {
+          "id": "scene-201",
+          "title": "Preserving Guarani Heritage",
+          "shortDescription": "The Guarani language and culture find new value",
+          "content": "",
+          "emotionTag": "",
+          "actionTag": "",
+          "characterRefs": [],
+          "locationRefs": []
+        },
+        {
+          "id": "scene-202",
+          "title": "Festival Renaissance",
+          "shortDescription": "",
+          "content": "",
+          "emotionTag": "",
+          "actionTag": "",
+          "characterRefs": [],
+          "locationRefs": []
+        },
+        {
+          "id": "scene-203",
+          "title": "Music and Arts Boom",
+          "shortDescription": "",
+          "content": "",
+          "emotionTag": "",
+          "actionTag": "",
+          "characterRefs": [],
+          "locationRefs": []
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "alfredo-rodriguez",
+      "name": "Alfredo Rodríguez",
+      "visible": true,
+      "attributes": {
+        "role": "Political Leader & Statesman",
+        "era": "1989-2024",
+        "background": "Military officer turned democratic reformer who witnessed Paraguay's transition from dictatorship to democracy",
+        "trust_level": "high",
+        "personality": "Pragmatic, visionary, bridge-builder",
+        "significance": "Symbol of Paraguay's transformation"
+      }
+    },
+    {
+      "id": "alfredo-stroessner",
+      "name": "Alfredo Stroessner",
+      "visible": true,
+      "attributes": {
+        "role": "Dictator (Historical)",
+        "era": "1954-1989",
+        "background": "Long-time dictator whose regime ended in 1989, marking the start of democracy",
+        "trust_level": "none",
+        "personality": "Authoritarian, isolated from progress",
+        "significance": "Represents the old Paraguay that was left behind"
+      }
+    },
+    {
+      "id": "maria-garcia",
+      "name": "María García López",
+      "visible": true,
+      "attributes": {
+        "role": "Education Reformer & Policy Advisor",
+        "era": "1989-2024",
+        "background": "Intellectual and educator who shaped Paraguay's education system and development policies",
+        "trust_level": "very_high",
+        "personality": "Visionary, dedicated, collaborative",
+        "significance": "Architect of human capital development"
+      }
+    },
+    {
+      "id": "juan-carlos-gaona",
+      "name": "Juan Carlos Gaona",
+      "visible": true,
+      "attributes": {
+        "role": "Environmental Scientist & Sustainability Leader",
+        "era": "1989-2024",
+        "background": "Scientist who pioneered environmental consciousness and green energy initiatives in Paraguay",
+        "trust_level": "very_high",
+        "personality": "Analytical, passionate, principled",
+        "significance": "Champion of sustainable development"
+      }
+    },
+    {
+      "id": "carlos-mendez",
+      "name": "Carlos Méndez",
+      "visible": true,
+      "attributes": {
+        "role": "Agricultural Innovator",
+        "era": "1999-2024",
+        "background": "Progressive farmer and agricultural economist who modernized Paraguay's farming practices",
+        "trust_level": "high",
+        "personality": "Practical, progressive, community-focused",
+        "significance": "Pioneer of sustainable agriculture"
+      }
+    },
+    {
+      "id": "sofia-torres",
+      "name": "Sofía Torres",
+      "visible": true,
+      "attributes": {
+        "role": "Tech Entrepreneur & Innovation Leader",
+        "era": "2010-2024",
+        "background": "Young technology entrepreneur who led Paraguay's digital transformation and tech sector growth",
+        "trust_level": "high",
+        "personality": "Ambitious, innovative, global-thinking",
+        "significance": "Face of new generation Paraguay"
+      }
+    },
+    {
+      "id": "diego-ortega",
+      "name": "Diego Ortega",
+      "visible": true,
+      "attributes": {
+        "role": "Engineer & Tech Co-Leader",
+        "era": "2010-2024",
+        "background": "Software engineer and tech visionary who partnered with Sofía to build Paraguay's tech ecosystem",
+        "trust_level": "high",
+        "personality": "Technical, collaborative, forward-looking",
+        "significance": "Catalyst of digital economy"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": "paraguay",
+      "name": "Paraguay",
+      "attributes": {
+        "region": "South America",
+        "description": "The heart of South America, landlocked but rich in resources",
+        "population_2024": "7.2 million",
+        "capital": "Asunción",
+        "significance": "The nation whose development journey we follow"
+      }
+    },
+    {
+      "id": "asuncion",
+      "name": "Asunción",
+      "attributes": {
+        "type": "Capital City",
+        "location": "Western Paraguay on the Paraná River",
+        "description": "The political, cultural, and economic heart of Paraguay",
+        "population": "525,000 (metropolitan: 2.2 million)",
+        "landmarks": "Puerto Fluvial, Catedral Metropolitana, Palacio de Gobierno",
+        "significance": "Symbol of Paraguay's modernization"
+      }
+    },
+    {
+      "id": "eastern-region",
+      "name": "Eastern Region",
+      "attributes": {
+        "type": "Agricultural Zone",
+        "location": "Eastern Paraguay",
+        "description": "Fertile lands that became Paraguay's soybean and agricultural export center",
+        "main_cities": "Concepción, San Juan Bautista, Villarrica",
+        "significance": "Engine of economic growth"
+      }
+    },
+    {
+      "id": "ciudad-del-este",
+      "name": "Ciudad del Este",
+      "attributes": {
+        "type": "Border City",
+        "location": "Triple border (Paraguay, Brazil, Argentina)",
+        "description": "Major commercial hub and gateway to South America",
+        "significance": "Symbol of regional integration",
+        "features": "Iguazu Falls proximity, technology hubs, international trade"
+      }
+    },
+    {
+      "id": "choco-region",
+      "name": "Chocó Region",
+      "attributes": {
+        "type": "Remote/Rural Area",
+        "location": "Western Paraguay",
+        "description": "Sparsely populated region with indigenous communities and natural resources",
+        "challenges": "Limited infrastructure, isolation from development",
+        "opportunities": "Green energy potential, indigenous heritage tourism"
+      }
+    },
+    {
+      "id": "wetlands",
+      "name": "Esteros del Ibera Wetlands",
+      "attributes": {
+        "type": "Natural Reserve",
+        "location": "Central Paraguay",
+        "description": "Precious ecosystem threatened by infrastructure expansion",
+        "ecological_value": "Biodiversity hotspot, carbon sink",
+        "significance": "Environmental challenge and conservation opportunity"
+      }
+    },
+    {
+      "id": "brazil",
+      "name": "Brazil",
+      "attributes": {
+        "type": "Neighboring Country",
+        "relationship": "Major trade partner, joint Itaipu project, largest influence",
+        "significance": "Paraguay's largest economic partner"
+      }
+    },
+    {
+      "id": "argentina",
+      "name": "Argentina",
+      "attributes": {
+        "type": "Neighboring Country",
+        "relationship": "Trade partner, Mercosur member",
+        "significance": "Regional integration partner"
+      }
+    },
+    {
+      "id": "south-america",
+      "name": "South America",
+      "attributes": {
+        "type": "Region",
+        "description": "The continent where Paraguay's story unfolds",
+        "significance": "Broader context for Paraguay's development"
+      }
+    },
+    {
+      "id": "buenos-aires",
+      "name": "Buenos Aires",
+      "attributes": {
+        "type": "Regional Capital",
+        "location": "Argentina",
+        "description": "Major financial center attracting investment in Paraguay",
+        "significance": "Source of regional investment"
+      }
+    }
+  ],
+  "background": {
+    "sections": [
+      {
+        "id": "bg-001",
+        "title": "Historical Context: From Isolation to Integration",
+        "content": "Paraguay was isolated for centuries under colonial rule and later dictatorship. The 1989 coup that overthrew [CHAR:alfredo-stroessner] opened the door to democracy. Since then, [LOC:paraguay] has undergone remarkable transformation: from a closed, agricultural economy to a dynamic player in South American integration.\n\nKey milestones:\n- 1989: Democratic transition\n- 1991: Mercosur membership\n- 2001: New Constitution emphasizing environmental protection\n- 2010s: Tech sector emergence\n- 2020s: Green energy leadership\n\nThis is not a smooth story—corruption, inequality, and environmental challenges persist. But the overall trajectory is one of hope and transformation."
+      },
+      {
+        "id": "bg-002",
+        "title": "Geography & Natural Resources",
+        "content": "[LOC:paraguay] is often called the 'heart of South America'—landlocked but strategically positioned. Its natural endowments are extraordinary:\n\n- Paraná River: One of the world's longest rivers, crucial for trade and hydroelectric power\n- Itaipu Dam: Joint project with [LOC:brazil], produces 20% of world's hydroelectric power\n- Fertile eastern plains: Perfect for agriculture\n- Wetlands and forests: Biodiversity hotspots\n- Guarani aquifer: World's largest freshwater underground reservoir\n\nThese resources are both blessing and curse. They enable economic development but also create pressure for unsustainable exploitation. The story of [LOC:paraguay]'s development is essentially how it manages these resources wisely."
+      },
+      {
+        "id": "bg-003",
+        "title": "Cultural Identity: Guarani & Spanish Fusion",
+        "content": "[LOC:paraguay] is unique in South America for its strong Guarani identity. Unlike other countries where indigenous culture was largely erased, Paraguay maintained a bilingual society where Guarani and Spanish coexist.\n\nGuarani language remains the mother tongue for millions. Guarani cultural elements—music, food, values—permeate everyday life. This cultural strength is Paraguay's identity, but also sometimes holds it back from full international integration.\n\nThe challenge of modern [LOC:paraguay]: How to honor this unique cultural heritage while engaging with globalization?"
+      },
+      {
+        "id": "bg-004",
+        "title": "Development Challenges",
+        "content": "Despite progress, [LOC:paraguay] faces significant challenges:\n\n- Income inequality: Among Latin America's highest\n- Poverty: Still affecting 40% of the population\n- Education: Spending lower than regional average\n- Environmental degradation: Deforestation rates alarming\n- Corruption: Institutional weakness remains\n- Brain drain: Young talent still emigrating\n- Infrastructure gaps: Rural areas severely underserved\n\nYet each of these challenges also represents an opportunity for transformation. Every story in this project addresses one or more of these challenges through the lens of hopeful change."
+      },
+      {
+        "id": "bg-005",
+        "title": "The People: From Struggle to Ambition",
+        "content": "The true resource of [LOC:paraguay] is its people. Paraguayans are known for resilience, creativity, and community spirit. After decades of dictatorship and poverty, there's a palpable sense of hope among younger generations.\n\nCharacters like [CHAR:sofia-torres] and [CHAR:diego-ortega] represent this new generation—ambitious, educated, connected to the world, yet committed to their nation's development. They're not emigrating; they're building careers and businesses at home.\n\nThis generational shift is perhaps [LOC:paraguay]'s greatest asset."
+      }
+    ]
+  }
+}

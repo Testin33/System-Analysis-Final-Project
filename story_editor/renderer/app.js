@@ -24,6 +24,7 @@
     selectedItemId: null,
     selectedSceneId: null,
     draft: null, // working copy of whichever entity is currently open in the editor
+    crashRecoveryContext: null, // for handling auto-save recovery
   };
 
   const dom = {
@@ -65,6 +66,9 @@
     openProjectList: document.getElementById("open-project-list"),
     openProjectEmpty: document.getElementById("open-project-empty"),
     btnCancelOpenProject: document.getElementById("btn-cancel-open-project"),
+    dialogCrashRecovery: document.getElementById("dialog-crash-recovery"),
+    btnCancelRecovery: document.getElementById("btn-cancel-recovery"),
+    btnRecoverAutosave: document.getElementById("btn-recover-autosave"),
     dialogValidationReport: document.getElementById("dialog-validation-report"),
     validationSummary: document.getElementById("validation-summary"),
     validationErrors: document.getElementById("validation-errors"),
@@ -206,6 +210,47 @@
     constructor(dom) {
       super();
       this.dom = dom;
+      this.sceneCount = 0;
+      this.characterCount = 0;
+      this.locationCount = 0;
+      this.wordCount = 0;
+      this.characterSceneMap = [];
+      this.emotionDistribution = [];
+      this.actionTagDistribution = [];
+      this.incompleteScenes = [];
+    }
+
+    // Public API: metrics getters (per class diagram specification)
+    getSceneCount() {
+      return this.sceneCount;
+    }
+
+    getCharacterCount() {
+      return this.characterCount;
+    }
+
+    getLocationCount() {
+      return this.locationCount;
+    }
+
+    getWordCount() {
+      return this.wordCount;
+    }
+
+    getCharacterSceneMap() {
+      return this.characterSceneMap;
+    }
+
+    getEmotionDistribution() {
+      return this.emotionDistribution;
+    }
+
+    getActionTagDistribution() {
+      return this.actionTagDistribution;
+    }
+
+    getIncompleteScenes() {
+      return this.incompleteScenes;
     }
 
     update(project) {
@@ -216,14 +261,20 @@
       const scenes = project.stories.flatMap((story) => story.scenes);
       const wordCount = scenes.reduce((total, scene) => total + countWords(scene.content), 0);
 
-      this.dom.metricScenes.textContent = scenes.length;
-      this.dom.metricCharacters.textContent = project.characters.length;
-      this.dom.metricLocations.textContent = project.locations.length;
-      this.dom.metricWords.textContent = wordCount;
+      // Store metrics for public API
+      this.sceneCount = scenes.length;
+      this.characterCount = project.characters.length;
+      this.locationCount = project.locations.length;
+      this.wordCount = wordCount;
+
+      this.dom.metricScenes.textContent = this.sceneCount;
+      this.dom.metricCharacters.textContent = this.characterCount;
+      this.dom.metricLocations.textContent = this.locationCount;
+      this.dom.metricWords.textContent = this.wordCount;
 
       this._renderCharacterMap(project, scenes);
-      this._renderDistribution(this.dom.dashEmotionDistribution, scenes, (scene) => scene.emotionTag);
-      this._renderDistribution(this.dom.dashActionDistribution, scenes, (scene) => scene.actionTag);
+      this._renderDistribution(this.dom.dashEmotionDistribution, scenes, (scene) => scene.emotionTag, 'emotion');
+      this._renderDistribution(this.dom.dashActionDistribution, scenes, (scene) => scene.actionTag, 'action');
       this._renderIncompleteScenes(project);
     }
 
@@ -244,13 +295,15 @@
 
     _renderCharacterMap(project, scenes) {
       const rows = project.characters.map((character) => ({
+        characterId: character.id,
         label: character.name || "(unnamed)",
         count: scenes.filter((scene) => scene.characterRefs.includes(character.id)).length,
       }));
+      this.characterSceneMap = rows;
       this._renderRows(this.dom.dashCharacterMap, rows, "No characters yet.");
     }
 
-    _renderDistribution(listEl, scenes, tagFor) {
+    _renderDistribution(listEl, scenes, tagFor, storageKey) {
       const counts = new Map();
       scenes.forEach((scene) => {
         const tag = (tagFor(scene) || "").trim() || "Untagged";
@@ -259,6 +312,13 @@
       const rows = Array.from(counts.entries())
         .map(([label, count]) => ({ label, count }))
         .sort((a, b) => b.count - a.count);
+
+      if (storageKey === 'emotion') {
+        this.emotionDistribution = rows;
+      } else if (storageKey === 'action') {
+        this.actionTagDistribution = rows;
+      }
+
       this._renderRows(listEl, rows, "No scenes yet.");
     }
 
@@ -292,6 +352,8 @@
           if (isSceneIncomplete(scene)) entries.push({ story, scene });
         });
       });
+      this.incompleteScenes = entries;
+
       if (!entries.length) {
         const li = document.createElement("li");
         li.className = "dashboard-rows-empty";
@@ -398,7 +460,9 @@
     }
 
     renderList(dom.lists.stories, state.project.stories, (story) => story.title || "(untitled)", "stories");
-    renderList(dom.lists.characters, state.project.characters, (character) => character.name || "(unnamed)", "characters");
+    // Filter invisible characters (visible === false hides them from the character list view)
+    const visibleCharacters = state.project.characters.filter((char) => char.visible !== false);
+    renderList(dom.lists.characters, visibleCharacters, (character) => character.name || "(unnamed)", "characters");
     renderList(dom.lists.locations, state.project.locations, (location) => location.name || "(unnamed)", "locations");
     renderList(
       dom.lists.background,
@@ -1118,9 +1182,16 @@
       const li = document.createElement("li");
       li.textContent = entry.title || "(untitled)";
       li.addEventListener("click", async () => {
-        const project = await window.api.loadProject(entry.filePath);
-        dom.dialogOpenProject.close();
-        setProject(project, entry.filePath);
+        // Check if there's an auto-save file for crash recovery
+        if (entry.hasAutoSave) {
+          state.crashRecoveryContext = { filePath: entry.filePath, autoSavePath: entry.autoSavePath };
+          dom.dialogOpenProject.close();
+          dom.dialogCrashRecovery.showModal();
+        } else {
+          const project = await window.api.loadProject(entry.filePath);
+          dom.dialogOpenProject.close();
+          setProject(project, entry.filePath);
+        }
       });
       dom.openProjectList.appendChild(li);
     });
@@ -1128,6 +1199,23 @@
   });
 
   dom.btnCancelOpenProject.addEventListener("click", () => dom.dialogOpenProject.close());
+
+  // Crash recovery handlers
+  dom.btnCancelRecovery.addEventListener("click", async () => {
+    if (!state.crashRecoveryContext) return;
+    const project = await window.api.loadProject(state.crashRecoveryContext.filePath);
+    dom.dialogCrashRecovery.close();
+    setProject(project, state.crashRecoveryContext.filePath);
+    state.crashRecoveryContext = null;
+  });
+
+  dom.btnRecoverAutosave.addEventListener("click", async () => {
+    if (!state.crashRecoveryContext) return;
+    const project = await window.api.loadAutoSaveProject(state.crashRecoveryContext.autoSavePath);
+    dom.dialogCrashRecovery.close();
+    setProject(project, state.crashRecoveryContext.filePath);
+    state.crashRecoveryContext = null;
+  });
 
   // ---------- Save ----------
   dom.btnSaveProject.addEventListener("click", async () => {
