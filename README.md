@@ -36,14 +36,47 @@ A professional **Story Scripting Editor** for writers and game designers to crea
 
 ---
 
-##  Quick Start
+## How to Run
 
-### Installation
+### Prerequisites
+- **Node.js** 18 or newer (includes `npm`). Download from [nodejs.org](https://nodejs.org/).
+  - Verify it's installed: `node --version` and `npm --version`
+- Works fully **offline** — no database, no account, no internet connection required.
+- Tested on Windows 11; also runs on macOS and Linux (Electron is cross-platform).
+
+### Run the app (3 steps)
 ```bash
+# 1. Move into the app folder (from the repo root)
 cd story_editor
+
+# 2. Install dependencies (Electron + pdfkit) — only needed the first time
 npm install
+
+# 3. Launch the desktop app
 npm start
 ```
+
+> The first `npm install` downloads Electron and may take a few minutes.
+> After that, you only need `npm start` to relaunch.
+
+**Alternative launch** (without npm script):
+```bash
+npx electron .
+```
+
+### Troubleshooting
+- **`npm: command not found`** → Node.js isn't installed or not on your PATH. Install it from [nodejs.org](https://nodejs.org/) and reopen the terminal.
+- **`electron: command not found` / app won't start** → run `npm install` again inside `story_editor/`.
+- **PowerShell blocks `npm.ps1`** → run `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`, or use `npm.cmd start`.
+- **Blank window / nothing loads** → check the terminal for errors and confirm `node_modules/` exists in `story_editor/`.
+
+### Run the smoke tests (optional, no UI)
+```bash
+cd story_editor
+node smoke_test.js            # Models + Observer + Storage
+node smoke_test_services.js   # Validator + Compiler + Search
+```
+A clean run ends with an "All assertions passed ✅" line.
 
 ### Demo Projects
 Two complete professional demo projects are included:
