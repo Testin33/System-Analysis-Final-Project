@@ -141,13 +141,6 @@ package "ui" {
     + get_incomplete_scenes(): List[Scene]
   }
 
-  note bottom of Dashboard
-    **Implementation Note:**
-    In the prototype, Dashboard is implemented as a class
-    inside the single renderer/app.js file rather than as a
-    separate ui/dashboard.js module. This is a deliberate
-    simplification for the prototype phase (documented in CLAUDE.md).
-  end note
 }
 
 ' --- Observer pattern wiring ---

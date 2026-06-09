@@ -44,7 +44,7 @@ Observable o-- "many" Observer : notifies
 Dashboard ..|> Observer : implements
 Dashboard --> Project : observes
 
-note right of Project
+/' note right of Project
   **Concrete Subject (Observable)**
   Every time the writer adds or edits a
   story, character, location, or background
@@ -68,5 +68,6 @@ note right of Dashboard
   pattern (shown here) remains unchanged: Dashboard observes
   state changes and updates its metrics accordingly.
 end note
+'/
 
 @enduml
